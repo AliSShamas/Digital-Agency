@@ -1,0 +1,82 @@
+{
+  "HomePage": {
+    "hero": {
+      "eyebrow": "Digital Agency",
+      "title": "We build digital experiences that move businesses forward.",
+      "description": "We combine strategy, design, and technology to create modern digital products that help businesses grow.",
+      "primaryButton": "Start a Project",
+      "secondaryButton": "Explore Services"
+    },
+    "features": {
+      "eyebrow": "What We Do",
+      "title": "From idea to digital product.",
+      "strategy": {
+        "title": "Strategy",
+        "description": "We turn business goals into clear digital strategies and actionable plans."
+      },
+      "design": {
+        "title": "Design",
+        "description": "We create clean, intuitive interfaces designed around real users."
+      },
+      "development": {
+        "title": "Development",
+        "description": "We build fast, scalable, and reliable digital products using modern technology."
+      }
+    },
+    "stats": {
+      "projects": "Projects Delivered",
+      "clients": "Happy Clients",
+      "experience": "Years Experience",
+      "countries": "Countries Reached"
+    }
+  },
+
+  "AboutPage": {
+    "eyebrow": "About Us",
+    "title": "We create digital experiences that make a difference.",
+    "description": "We are a digital agency focused on helping businesses turn ideas into meaningful digital experiences.",
+    "missionTitle": "Our Mission",
+    "mission": "Our mission is to combine creativity, strategy, and technology to build digital products that create real value."
+  },
+
+  "ServicesPage": {
+    "eyebrow": "Our Services",
+    "title": "Everything you need to build and grow digitally.",
+    "description": "From strategy and design to development and optimization, we help businesses succeed in the digital world.",
+    "strategy": {
+      "title": "Digital Strategy",
+      "description": "We develop clear digital strategies aligned with your business goals."
+    },
+    "design": {
+      "title": "UI/UX Design",
+      "description": "We design intuitive and engaging experiences that put users first."
+    },
+    "development": {
+      "title": "Web Development",
+      "description": "We build fast, scalable, and maintainable websites and applications."
+    }
+  },
+  "BlogPage": {
+  "eyebrow": "Our Blog",
+  "title": "Insights, ideas, and digital perspectives.",
+  "description": "Explore our latest thoughts on strategy, design, technology, and digital products.",
+  "readMore": "Read article",
+  "articles": {
+    "digitalTransformation": {
+      "category": "Strategy",
+      "title": "Why Digital Transformation Matters",
+      "excerpt": "How businesses can use digital transformation to create better experiences and stronger results."
+    },
+    "userFocusedDesign": {
+      "category": "Design",
+      "title": "Designing Around Real Users",
+      "excerpt": "Why understanding your users is one of the most important parts of creating a successful digital product."
+    },
+    "futureOfWebDevelopment": {
+      "category": "Development",
+      "title": "The Future of Web Development",
+      "excerpt": "A look at how modern technologies are changing the way websites and digital products are built."
+    }
+  }
+}
+}
