@@ -1,3 +1,3 @@
 export default function ServicesPage() {
-  return <h1>Services</h1>;
+  return <h1 className="relative isolate overflow-hidden bg-stone-50 px-6 py-24 text-stone-950 before:pointer-events-none before:absolute before:-end-32 before:-top-24 before:-z-10 before:size-[32rem] before:rounded-full before:border-[5rem] before:border-indigo-100/70 md:py-32 dark:bg-stone-950 dark:text-stone-50 dark:before:border-indigo-950/50 min-h-[55vh] text-5xl font-bold tracking-tight md:text-7xl">Services</h1>;
 }

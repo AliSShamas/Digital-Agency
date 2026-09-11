@@ -30,7 +30,6 @@
       "countries": "Countries Reached"
     }
   },
-
   "AboutPage": {
     "eyebrow": "About Us",
     "title": "We create digital experiences that make a difference.",
@@ -38,7 +37,6 @@
     "missionTitle": "Our Mission",
     "mission": "Our mission is to combine creativity, strategy, and technology to build digital products that create real value."
   },
-
   "ServicesPage": {
     "eyebrow": "Our Services",
     "title": "Everything you need to build and grow digitally.",
@@ -57,26 +55,61 @@
     }
   },
   "BlogPage": {
-  "eyebrow": "Our Blog",
-  "title": "Insights, ideas, and digital perspectives.",
-  "description": "Explore our latest thoughts on strategy, design, technology, and digital products.",
-  "readMore": "Read article",
-  "articles": {
-    "digitalTransformation": {
-      "category": "Strategy",
-      "title": "Why Digital Transformation Matters",
-      "excerpt": "How businesses can use digital transformation to create better experiences and stronger results."
-    },
-    "userFocusedDesign": {
-      "category": "Design",
-      "title": "Designing Around Real Users",
-      "excerpt": "Why understanding your users is one of the most important parts of creating a successful digital product."
-    },
-    "futureOfWebDevelopment": {
-      "category": "Development",
-      "title": "The Future of Web Development",
-      "excerpt": "A look at how modern technologies are changing the way websites and digital products are built."
+    "eyebrow": "Our Blog",
+    "title": "Insights, ideas, and digital perspectives.",
+    "description": "Explore our latest thoughts on strategy, design, technology, and digital products.",
+    "readMore": "Read article",
+    "articles": {
+      "digitalTransformation": {
+        "category": "Strategy",
+        "title": "Why Digital Transformation Matters",
+        "excerpt": "How businesses can use digital transformation to create better experiences and stronger results.",
+        "content": {
+          "paragraph1": "Digital transformation is more than simply using new technology. It is about changing how a business works, serves customers, and responds to new opportunities.",
+          "paragraph2": "Companies that use digital tools effectively can improve their internal processes, understand customers better, and create faster and more convenient experiences.",
+          "paragraph3": "Successful digital transformation starts with clear business goals. Technology should support those goals rather than being introduced simply because it is new."
+        }
+      },
+      "userFocusedDesign": {
+        "category": "Design",
+        "title": "Designing Around Real Users",
+        "excerpt": "Why understanding your users is one of the most important parts of creating a successful digital product.",
+        "content": {
+          "paragraph1": "Good design begins with understanding the people who will actually use the product. Their needs, problems, and expectations should guide design decisions.",
+          "paragraph2": "User-focused design helps reduce confusion and makes digital products easier and more enjoyable to use.",
+          "paragraph3": "By testing ideas with real users and improving designs based on feedback, teams can create products that solve real problems instead of relying only on assumptions."
+        }
+      },
+      "futureOfWebDevelopment": {
+        "category": "Development",
+        "title": "The Future of Web Development",
+        "excerpt": "A look at how modern technologies are changing the way websites and digital products are built.",
+        "content": {
+          "paragraph1": "Web development continues to evolve as browsers, frameworks, and development tools become more powerful.",
+          "paragraph2": "Modern frameworks allow developers to build fast and interactive applications while also improving performance, maintainability, and the overall developer experience.",
+          "paragraph3": "The future of web development will continue to focus on performance, accessibility, security, and creating better experiences across different devices."
+        }
+      }
     }
-  }
+  },
+  "ContactPage": {
+    "eyebrow": "Contact Us",
+    "title": "Let's build something together.",
+    "description": "Tell us about your project, idea, or challenge and we'll get back to you.",
+    "form": {
+      "name": "Name",
+      "email": "Email",
+      "message": "Message",
+      "submit": "Send Message",
+      "sending": "Sending..."
+    }
+  },"Navigation": {
+  "home": "Home",
+  "about": "About",
+  "services": "Services",
+  "blog": "Blog",
+  "contact": "Contact",
+  "openMenu": "Open menu",
+  "closeMenu": "Close menu"
 }
 }
