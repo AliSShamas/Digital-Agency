@@ -1,14 +1,58 @@
+import type {Metadata} from 'next';
 import {hasLocale, useTranslations} from 'next-intl';
+import {getTranslations} from 'next-intl/server';
 import {notFound} from 'next/navigation';
 
 import {blogArticles} from '@/data/blog';
 import {routing} from '@/i18n/routing';
+import ArticleDate from '@/components/blog/ArticleDate';
 
 interface BlogArticlePageProps {
   params: Promise<{
     locale: string;
     slug: string;
   }>;
+}
+
+export function generateStaticParams() {
+  return routing.locales.flatMap((locale) =>
+    blogArticles.map((article) => ({
+      locale,
+      slug: article.slug
+    }))
+  );
+}
+
+export async function generateMetadata({
+  params
+}: BlogArticlePageProps): Promise<Metadata> {
+  const {locale, slug} = await params;
+
+  const article = blogArticles.find(
+    (article) => article.slug === slug
+  );
+
+  if (!article) {
+    notFound();
+  }
+
+  const t = await getTranslations({
+    locale,
+    namespace: 'BlogPage'
+  });
+
+  return {
+    title: t(`${article.translationKey}.title`),
+    description: t(`${article.translationKey}.excerpt`),
+
+    alternates: {
+      canonical: `/${locale}/blog/${slug}`,
+      languages: {
+        en: `/en/blog/${slug}`,
+        ar: `/ar/blog/${slug}`
+      }
+    }
+  };
 }
 
 export default async function BlogArticlePage({
@@ -28,35 +72,46 @@ export default async function BlogArticlePage({
     notFound();
   }
 
-  return <ArticleContent translationKey={article.translationKey} />;
+  return (
+    <ArticleContent
+      translationKey={article.translationKey}
+      date={article.date}
+    />
+  );
 }
 
 interface ArticleContentProps {
   translationKey: string;
+  date: string;
 }
 
 function ArticleContent({
-  translationKey
+  translationKey,
+  date
 }: ArticleContentProps) {
   const t = useTranslations('BlogPage');
 
   return (
     <main>
-      <article className="relative isolate overflow-hidden bg-stone-50 px-6 py-24 text-stone-950 before:pointer-events-none before:absolute before:-end-32 before:-top-24 before:-z-10 before:size-[32rem] before:rounded-full before:border-[5rem] before:border-indigo-100/70 md:py-32 dark:bg-stone-950 dark:text-stone-50 dark:before:border-indigo-950/50">
+      <article className="px-6 py-20 md:py-28">
         <div className="mx-auto max-w-3xl">
-          <p className="text-xs font-bold uppercase tracking-[0.22em] text-indigo-600 dark:text-indigo-400">
+          <p className="text-sm font-semibold uppercase tracking-wider opacity-60">
             {t(`${translationKey}.category`)}
           </p>
 
-          <h1 className="mt-4 text-balance text-4xl font-bold leading-[1.08] tracking-[-0.045em] sm:text-5xl md:text-6xl">
+          <h1 className="mt-4 text-4xl font-bold tracking-tight md:text-6xl">
             {t(`${translationKey}.title`)}
           </h1>
 
-          <p className="mt-6 max-w-2xl text-pretty text-lg leading-8 text-stone-600 dark:text-stone-400">
+          <p className="mt-4 text-sm opacity-60">
+            <ArticleDate date={date} />
+          </p>
+
+          <p className="mt-6 text-lg leading-8 opacity-70">
             {t(`${translationKey}.excerpt`)}
           </p>
 
-          <div className="mt-12 space-y-6 border-t border-stone-200 pt-10 text-base leading-8 text-stone-700 md:text-lg dark:border-stone-800 dark:text-stone-300">
+          <div className="mt-12 space-y-6 leading-8">
             <p>
               {t(`${translationKey}.content.paragraph1`)}
             </p>

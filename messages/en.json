@@ -1,4 +1,26 @@
 {
+  "Metadata": {
+    "home": {
+      "title": "Our Agency | Digital Strategy, Design & Development",
+      "description": "We combine strategy, design, and web development to create digital experiences that help businesses grow. Explore our services and start your next project."
+    },
+    "about": {
+      "title": "About Us | Our Agency",
+      "description": "Learn about our digital agency and our mission to combine creativity, strategy, and technology to build digital products that create real value."
+    },
+    "services": {
+      "title": "Digital Strategy, UI/UX Design & Web Development | Our Agency",
+      "description": "Explore our digital strategy, UI/UX design, and web development services to turn your business goals into clear plans and engaging digital experiences."
+    },
+    "contact": {
+      "title": "Contact Us | Our Agency",
+      "description": "Tell us about your project, idea, or challenge. Contact our digital agency to discuss how strategy, design, and development can support your business."
+    },
+    "blog": {
+      "title": "Digital Strategy, Design & Technology Blog | Our Agency",
+      "description": "Read our insights on digital transformation, user-focused design, and web development, with ideas for creating better digital products and experiences."
+    }
+  },
   "HomePage": {
     "hero": {
       "eyebrow": "Digital Agency",
@@ -96,6 +118,12 @@
     "eyebrow": "Contact Us",
     "title": "Let's build something together.",
     "description": "Tell us about your project, idea, or challenge and we'll get back to you.",
+    "feedback": {
+      "invalidData": "Invalid form data.",
+      "requiredFields": "Please fill in all fields.",
+      "invalidEmail": "Please enter a valid email address.",
+      "success": "Message sent successfully."
+    },
     "form": {
       "name": "Name",
       "email": "Email",
@@ -104,6 +132,7 @@
       "sending": "Sending..."
     }
   },"Navigation": {
+  "brand": "Our Agency",
   "home": "Home",
   "about": "About",
   "services": "Services",
@@ -111,5 +140,13 @@
   "contact": "Contact",
   "openMenu": "Open menu",
   "closeMenu": "Close menu"
-}
-}
+},"Footer": {
+  "brand": "Our Agency",
+  "description": "We build modern digital experiences.",
+  "home": "Home",
+  "about": "About",
+  "services": "Services",
+  "blog": "Blog",
+  "contact": "Contact",
+  "copyright": "© 2026 Our Agency"
+}}

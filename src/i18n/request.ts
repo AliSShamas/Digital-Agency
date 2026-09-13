@@ -4,8 +4,8 @@ import * as rootParams from 'next/root-params';
 
 import {routing} from './routing';
 
-export default getRequestConfig(async () => {
-  const requested = await rootParams.locale();
+export default getRequestConfig(async ({locale: explicitLocale}) => {
+  const requested = explicitLocale ?? await rootParams.locale();
 
   const locale = hasLocale(routing.locales, requested)
     ? requested

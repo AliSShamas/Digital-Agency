@@ -1,14 +1,19 @@
 'use server';
 
+import {getTranslations} from 'next-intl/server';
+
 export interface ContactFormState {
   success: boolean;
   message: string;
 }
 
 export async function submitContactForm(
+  locale: string,
   previousState: ContactFormState,
   formData: FormData
 ): Promise<ContactFormState> {
+  const t = await getTranslations({locale, namespace: 'ContactPage.feedback'});
+
   const name = formData.get('name');
   const email = formData.get('email');
   const message = formData.get('message');
@@ -20,21 +25,21 @@ export async function submitContactForm(
   ) {
     return {
       success: false,
-      message: 'Invalid form data.'
+      message: t('invalidData')
     };
   }
 
   if (!name.trim() || !email.trim() || !message.trim()) {
     return {
       success: false,
-      message: 'Please fill in all fields.'
+      message: t('requiredFields')
     };
   }
 
   if (!email.includes('@')) {
     return {
       success: false,
-      message: 'Please enter a valid email address.'
+      message: t('invalidEmail')
     };
   }
 
@@ -46,6 +51,6 @@ export async function submitContactForm(
 
   return {
     success: true,
-    message: 'Message sent successfully.'
+    message: t('success')
   };
 }

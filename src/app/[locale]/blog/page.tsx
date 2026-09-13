@@ -2,6 +2,34 @@ import {useTranslations} from 'next-intl';
 
 import {blogArticles} from '@/data/blog';
 import BlogListing from '@/components/blog/BlogListing';
+import type {Metadata} from 'next';
+import {getTranslations} from 'next-intl/server';
+
+interface BlogPageProps {
+  params: Promise<{
+    locale: string;
+  }>;
+}
+
+export async function generateMetadata({
+  params
+}: BlogPageProps): Promise<Metadata> {
+  const {locale} = await params;
+
+  const t = await getTranslations({locale, namespace: 'Metadata.blog'});
+
+  return {
+    title: t('title'),
+    description: t('description'),
+    alternates: {
+      canonical: `/${locale}/blog`,
+      languages: {
+        en: '/en/blog',
+        ar: '/ar/blog'
+      }
+    }
+  };
+}
 
 export default function BlogPage() {
   const t = useTranslations('BlogPage');

@@ -1,7 +1,7 @@
 'use client';
 
-import {useActionState} from 'react';
-import {useTranslations} from 'next-intl';
+import {useActionState, useEffect, useState} from 'react';
+import {useLocale, useTranslations} from 'next-intl';
 
 import {
   submitContactForm,
@@ -13,13 +13,28 @@ const initialState: ContactFormState = {
   message: ''
 };
 
+const emptyValues = {
+  name: '',
+  email: '',
+  message: ''
+};
+
 export default function ContactForm() {
+  const locale = useLocale();
   const t = useTranslations('ContactPage');
 
+  const [values, setValues] = useState(emptyValues);
+
   const [state, formAction, pending] = useActionState(
-    submitContactForm,
+    submitContactForm.bind(null, locale),
     initialState
   );
+
+  useEffect(() => {
+    if (state.success) {
+      setValues(emptyValues);
+    }
+  }, [state.success]);
 
   return (
     <form
@@ -38,6 +53,13 @@ export default function ContactForm() {
           id="name"
           name="name"
           type="text"
+          value={values.name}
+          onChange={(event) =>
+            setValues((current) => ({
+              ...current,
+              name: event.target.value
+            }))
+          }
           className="min-h-12 w-full rounded-xl border border-stone-300 bg-white px-4 py-3 text-start text-base text-stone-950 transition-colors focus:border-indigo-500 focus:outline-2 focus:outline-offset-2 focus:outline-indigo-500 dark:border-stone-700 dark:bg-stone-950 dark:text-stone-50 dark:focus:border-indigo-400 dark:focus:outline-indigo-400"
         />
       </div>
@@ -54,6 +76,13 @@ export default function ContactForm() {
           id="email"
           name="email"
           type="email"
+          value={values.email}
+          onChange={(event) =>
+            setValues((current) => ({
+              ...current,
+              email: event.target.value
+            }))
+          }
           className="min-h-12 w-full rounded-xl border border-stone-300 bg-white px-4 py-3 text-start text-base text-stone-950 transition-colors focus:border-indigo-500 focus:outline-2 focus:outline-offset-2 focus:outline-indigo-500 dark:border-stone-700 dark:bg-stone-950 dark:text-stone-50 dark:focus:border-indigo-400 dark:focus:outline-indigo-400"
         />
       </div>
@@ -70,6 +99,13 @@ export default function ContactForm() {
           id="message"
           name="message"
           rows={6}
+          value={values.message}
+          onChange={(event) =>
+            setValues((current) => ({
+              ...current,
+              message: event.target.value
+            }))
+          }
           className="min-h-40 w-full resize-y rounded-xl border border-stone-300 bg-white px-4 py-3 text-start text-base leading-7 text-stone-950 transition-colors focus:border-indigo-500 focus:outline-2 focus:outline-offset-2 focus:outline-indigo-500 dark:border-stone-700 dark:bg-stone-950 dark:text-stone-50 dark:focus:border-indigo-400 dark:focus:outline-indigo-400"
         />
       </div>
@@ -84,6 +120,8 @@ export default function ContactForm() {
 
       {state.message && (
         <p
+          role={state.success ? 'status' : 'alert'}
+          aria-live={state.success ? 'polite' : 'assertive'}
           className={
             state.success
               ? 'rounded-xl border border-emerald-200 bg-emerald-50 px-4 py-3 text-sm font-medium leading-6 text-emerald-800 dark:border-emerald-900 dark:bg-emerald-950/50 dark:text-emerald-300'
