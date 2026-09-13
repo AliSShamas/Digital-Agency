@@ -29,7 +29,7 @@ export default function Stats() {
           {stats.map((stat) => (
             <div key={stat.key} className="border-s-2 border-indigo-500/30 ps-5 md:ps-7">
               <p className="text-4xl font-bold tracking-tight tabular-nums md:text-5xl">
-                {stat.value}
+                <bdi dir="ltr">{stat.value}</bdi>
               </p>
 
               <p className="mt-3 text-sm font-medium leading-6 text-stone-600 dark:text-stone-400">

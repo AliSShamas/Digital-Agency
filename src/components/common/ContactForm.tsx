@@ -1,6 +1,6 @@
 'use client';
 
-import {useActionState, useEffect, useState} from 'react';
+import {useActionState, useState} from 'react';
 import {useLocale, useTranslations} from 'next-intl';
 
 import {
@@ -26,15 +26,17 @@ export default function ContactForm() {
   const [values, setValues] = useState(emptyValues);
 
   const [state, formAction, pending] = useActionState(
-    submitContactForm.bind(null, locale),
+    async (previousState: ContactFormState, formData: FormData) => {
+      const result = await submitContactForm(locale, previousState, formData);
+
+      if (result.success) {
+        setValues(emptyValues);
+      }
+
+      return result;
+    },
     initialState
   );
-
-  useEffect(() => {
-    if (state.success) {
-      setValues(emptyValues);
-    }
-  }, [state.success]);
 
   return (
     <form
