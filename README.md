@@ -11,7 +11,7 @@ The project supports both English and Arabic, including RTL layouts, localized n
 Add the Vercel URL here after deployment:
 
 ```text
-https://your-project.vercel.app
+[https://your-project.vercel.app](https://digital-agency-xi-topaz.vercel.app/en)
 Features
 English and Arabic localization
 Locale-based routes using /en and /ar
